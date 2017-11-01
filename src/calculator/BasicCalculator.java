@@ -12,7 +12,7 @@
 * @since   2017-10-31
 */
 
-package calculator;
+// package calculator;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -29,7 +29,7 @@ public class BasicCalculator {
         calculate();
         input.close();
     }
-    /** Select the mode */
+    /** Mode Selector */
     public static String modeSelector() {
         message(" ");
         message("Chose a calculator mode:");
@@ -61,7 +61,6 @@ public class BasicCalculator {
         }
         return mode;
     }
-
     /** calculate all the input */
     private static void calculate() {
         mode = modeSelector();
@@ -114,7 +113,6 @@ public class BasicCalculator {
             calculate();
         }
     }
-
     /** Standard Mode */
     public static String standardMode() {
         message("Choose an operation to execute: ");
@@ -142,21 +140,22 @@ public class BasicCalculator {
         String inputOperator = input.nextLine();
         return inputOperator;
     }
-
     /** Multiple operations Mode */
     public static void multiOpMode() {
         message("Welcome to Multiple operations Mode! ");
         message("A new feature in Basic Calculator 2. ");
-        message("How many numbers do you want to work with? ");
+        message(" ");
+        message("How many numbers do you want to compute? ");
         prompt("> ");
         double inputNumberArray = input.nextDouble();
+        message(" ");
         message("Enter " + (int)inputNumberArray + " numbers:");
         message(" ");
         double[] numberArray = new double[(int) inputNumberArray];
         // Input number array
         String[] opArray = new String[numberArray.length - 1];
         for(int i=0; i < numberArray.length; i++) {
-            prompt("Enter a number: ");
+            prompt("("+(i+1)+")"+" Enter number: ");
             double numberInput = input.nextDouble();
             numberArray[i] = numberInput;
             input.nextLine();
@@ -168,18 +167,16 @@ public class BasicCalculator {
                 message(" ");
             }
         }
-        System.out.println("New Array1: " + Arrays.toString(numberArray));
-        System.out.println("New Array2: " + Arrays.toString(opArray));
         // Compute number array
         double sum = 0.0;
         double number = 0.0;
         int opCount = 0;
         for(int i=0; i < numberArray.length+1; i++) {
-            message("at the start of loop "+i+" sum is "+sum); // debug
             if (i == 0) {
                 number = numberArray[i];
                 sum = number;
-            } else if (opCount < opArray.length){
+            }
+            if (opCount < opArray.length){
                 if (opArray[i].equals("+")) {
                     sum = sum + number;
                 }
@@ -194,15 +191,11 @@ public class BasicCalculator {
                 }
                 opCount++;
             } else {
-                // Done
-                message(" ");
+                break;
             }
-            message("at the end of loop "+i+" sum is "+sum); // debug
         }
-        // Output answer and ask to try again
-        message(" ");
         message("Output = " + sum);
-        message(" ");
+        message("Press enter to continue.");
         tryAgain();
     }
     /** Get array from input, divide all indexes. */
@@ -307,7 +300,7 @@ public class BasicCalculator {
         message(" ");
         tryAgain();
     }
-    /** Computer sine from input. */
+    /** Compute sine from input. */
     private static void sinOperation() {
         prompt("Enter a number to find the sine: ");
         double inputX = input.nextDouble();
@@ -316,7 +309,7 @@ public class BasicCalculator {
         message(" ");
         tryAgain();
     }
-    /** Computer cosine from input. */
+    /** Compute cosine from input. */
     private static void cosOperation() {
         prompt("Enter a number to find the cosine: ");
         double inputX = input.nextDouble();
@@ -325,7 +318,7 @@ public class BasicCalculator {
         message(" ");
         tryAgain();
     }
-    /** Computer tangent from input. */
+    /** Compute tangent from input. */
     private static void tanOperation() {
         prompt("Enter a number to find the tangent: ");
         double inputX = input.nextDouble();
@@ -352,7 +345,8 @@ public class BasicCalculator {
                 goodbye();
         } else {
             message("Error: ");
-            goodbye();
+            message(" ");
+            tryAgain();
         }
     }
     /** Welcome statement. */
