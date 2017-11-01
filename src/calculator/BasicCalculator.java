@@ -1,11 +1,11 @@
 /**
 * A basic calculator program.
 *
-* The calculator can operate in two modes: Standard and Scientific modes.
-* The Standard mode will allow the user to perform the following operations:
-* add, subtract, multiply, and divide. The Scientific mode will allow the
-* user to perform the same functionality as the Standard plus the following:
-* sin x, cos x, tan x.
+* The calculator can operate in three modes: Standard, Scientific and multi
+* operator mode. The Standard mode will allow the user to perform the following
+* operations: add, subtract, multiply, and divide. The Scientific mode will
+* allow the user to perform the same functionality as the Standard plus the
+* following: sin x, cos x, tan x.
 *
 * @author  Eli Heuer
 * @version 2.0
@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /** A basic calculator program. */
-public class BasicCalculator2 {
+public class BasicCalculator {
     // Initialize modes and input
     static String mode = null;
     static String operatorMode = null; 
